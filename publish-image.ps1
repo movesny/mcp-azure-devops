@@ -2,7 +2,7 @@
 $GHCR_USER = "movesny"
 $GHCR_TOKEN = ""
 $IMAGE_LOCAL = "mcp-azure-devops:latest"
-$IMAGE_REMOTE = "ghcr.io/vortiago/mcp-azure-devops:latest"
+$IMAGE_REMOTE = "ghcr.io/movesny/mcp-azure-devops:latest"
 
 # Login to GitHub Container Registry
 $GHCR_TOKEN | docker login ghcr.io -u $GHCR_USER --password-stdin
