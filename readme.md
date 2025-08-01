@@ -44,7 +44,9 @@ Now you can test it by asking for example "Which work items are assigned to me i
 
 ## Troubleshooting
 If the MCP server reports connection errors, this is likely due to the network setup.
-Our ADO is hosted at 172.17.xxx.xxx.
+Our ADO is hosted at 172.17.xxx.xxx, which is liekly in confliect with your Docker/Rancher setup.
+
+### Docker
 If you run `docker network inspect bridge`, you will likely see this:
 ```json
 "IPAM": {
@@ -68,3 +70,25 @@ This is clearly a problem because there is a conflict in the IP resolution. To f
   ]
 ```
 Finally, click "Apply & restart".
+
+### Rancher
+In cmdline run:
+```cmd
+rdctl shell
+sudo vi /etc/docker/daemon.json
+```
+Change the file to:
+```json
+{  "features": {    "containerd-snapshotter": false  },  "default-address-pools": [    {      "base": "172.100.0.0/16",      "size": 16    }  ]}
+```
+And save (press shift+zz).
+Then run:
+```cmd
+rdctl shutdown
+rdctl start
+```
+You can verify that the changes were written correctly by running:
+```
+rdctl shell cat /etc/docker/daemon.json
+```
+In case there was a syntax error, the file would be overwritten by the default values.
