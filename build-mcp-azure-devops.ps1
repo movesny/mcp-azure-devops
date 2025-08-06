@@ -2,17 +2,7 @@
 # Environment variables: AZURE_DEVOPS_PAT and AZURE_DEVOPS_ORGANIZATION_URL
 
 # Variables
-$repoUrl = "https://github.com/Vortiago/mcp-azure-devops.git"
-$repoName = "mcp-azure-devops"
 $imageName = "mcp-azure-devops:latest"
-
-# Clone the repository
-if (-not (Test-Path $repoName)) {
-    git clone $repoUrl
-}
-
-# Change to repo directory
-Set-Location $repoName
 
 # Create Dockerfile
 $dockerfileContent = @"
