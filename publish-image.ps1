@@ -1,6 +1,6 @@
 # Set variables
 $GHCR_USER = "movesny"
-$GHCR_TOKEN = ""
+$GHCR_TOKEN = Get-Content -Path "github_token.txt" -Raw
 $IMAGE_LOCAL = "mcp-azure-devops:latest"
 $IMAGE_REMOTE = "ghcr.io/movesny/mcp-azure-devops:latest"
 
