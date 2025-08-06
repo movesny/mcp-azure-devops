@@ -1,5 +1,7 @@
 # MCP Server for Azure DevOps (including on premise server)
 This project is based on the https://github.com/Vortiago/mcp-azure-devops/
+The content of the `mcp-azure-devops` directory contains a for from that repository from commit 301995e published on 2025-05-27. Additional features have been built on top of it.
+
 The Docker image of the MCP server is available at [ghcr.io/movesny/mcp-azure-devops](https://github.com/users/movesny/packages/container/package/mcp-azure-devops)
 
 ## Usage
